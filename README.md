@@ -3,8 +3,13 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 
 # API
 The API provides the following calls:
-* Describe Instance
-** Takes an instance ID and returns a TOSCA-compliant description of that instance
+* List Providers
+  * Returns a list of the providers supported by this TOSCALens
+    * provider-id
+    * provider-shortname
+    * provider-description
+* Describe Compute Instance
+  * Takes an instance ID and returns a TOSCA-compliant description of that instance
 
 # Drivers
 A driver is a plug-in that allows TOSCALens to return asset descriptions for a particular provider.
