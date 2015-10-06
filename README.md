@@ -14,10 +14,10 @@ The API provides the following calls:
 # Drivers
 A driver is a plug-in that allows TOSCALens to return asset descriptions for a particular provider.
 
-## AWS Driver
+**AWS Driver**
 Supports: Compute Instances
 
-## VMWare Driver
+**VMWare Driver**
 Supports: Compute Instances
 
 # Comparison to OpenStack Congress
@@ -25,12 +25,10 @@ https://github.com/openstack/congress
 https://github.com/openstack/congress/blob/master/congress/datasources/vCenter_driver.py
 The Congress project from OpenStack is conceptually very similar to the whole of the effort around ReaperBot. Though, the design and implementation is much different. OpenStack Congress is a policy enforcement engine that will work against multiple cloud providers.
 
-Key Differences:
+**Key Differences:**
 * Congress is a complete project, with a TOSCA style view of APIs and policy engine
-* ReaperBot is an orchestrated collection of standalone services. These services can be easily used outside of the context of ReaperBot.
-
+ * ReaperBot is an orchestrated collection of standalone services. These services can be easily used outside of the context of ReaperBot.
 * Congress utilizes a custom static language to represent policy logic
-* ReaperBot utilizes lambda functions to allow the logic for each policy to be expressed in one of several different languages
-
+ * ReaperBot utilizes lambda functions to allow the logic for each policy to be expressed in one of several different languages
 * Congress is written in Python
-* ReaperBot is not
+ * ReaperBot is not
