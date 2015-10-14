@@ -1,6 +1,19 @@
 # Overview
 TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant format. The API will return TOSCA-compliant metadata that describes many different types of assets. A pluggable driver model allows for additional providers to be introduced.
 
+#  Lamba Function
+
+Run as a lambda with a sample json of
+```
+{"instance-id": "xxxxxx"}
+```
+
+Returns
+```
+"tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties:\n    instanceId: i-3b9c1e97\n    tags:\n    - {value: ngs-compute-centos002, key: Name}\n    - {value: ngs, key: app}\n    - {value: grc-sw-ssa-csa, key: dept}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
+```
+
+
 # API
 The API provides the following calls:
 * List Providers

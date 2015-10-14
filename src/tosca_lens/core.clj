@@ -1,11 +1,13 @@
-(ns tosca-lens
+(ns tosca-lens.core
   (:gen-class
-   :methods [^:static [translate [String] String]])
+   :methods [^:static [lambda [Object] String]])
   (:require [amazonica.aws.ec2 :as ec2]
             [amazonica.aws.sqs :as sqs]
+            [clojure.tools.logging :as log]
             [clj-tosca.node :as node]
             [clj-tosca.node-instance :as nodei]
-            [clj-yaml.core :as yaml]))
+            [clj-yaml.core :as yaml]
+            [tosca-lens.util :as util]))
 
 
 (def creds {:access-key "AKIAJ66CWNVZBD5BPCVA"
@@ -31,6 +33,9 @@
                                   nodei
                                   node))))
 
-#_(defn -lambda [input]
-  
-  )
+(defn -lambda [input]
+  (let [data (util/as-clj-map input)
+        instance-id (:instance-id data)]
+    (log/info "Getting instance")
+    (log/info instance-id)
+    (.toString (tosca-tags instance-id))))

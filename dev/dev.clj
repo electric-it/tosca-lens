@@ -12,10 +12,10 @@
    [clojure.test :as test]
    [clojure.tools.namespace.repl :refer [refresh refresh-all]]
    [amazonica.aws.ec2 :as ec2]
-   [tosca-lens :as tl]))
+   [tosca-lens.core :as tl]
+   [tosca-lens.util :as util]))
 
 (def sample-id "i-3b9c1e97")
-
 
 (def creds {:access-key "AKIAJ66CWNVZBD5BPCVA"
             :secret-key "VGY0a/1KNgM3Y2jeIcOz1ckATMsM8Fbfx3D9EVtg"
