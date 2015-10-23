@@ -9,7 +9,7 @@ Run as a lambda with a sample json of
   "creds" : {
     "access-key" : "xxxxxx",
     "access-secret" : "xxxxxx",
-    "endoint": "region id"
+    "endpoint": "region id"
   }
 }
 ```
