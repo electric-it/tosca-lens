@@ -5,7 +5,8 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 
 Run as a lambda with a sample json of
 ```
-{ "instance-id" : "xxxxxx"
+{
+  "instance-id" : "xxxxxx"
   "creds" : {
     "access-key" : "xxxxxx",
     "access-secret" : "xxxxxx",
