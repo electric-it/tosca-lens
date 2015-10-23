@@ -3,6 +3,8 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 
 #  Lamba Function
 
+This first version of tosca-lens takes in the following json and returns a list of the tags on the instance.
+
 Run as a lambda with a sample json of
 ```
 {
