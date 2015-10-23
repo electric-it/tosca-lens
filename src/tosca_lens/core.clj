@@ -9,22 +9,15 @@
             [clj-yaml.core :as yaml]
             [tosca-lens.util :as util]))
 
+(defn data-for-instance [instance-id creds]
+  (let [instance-data (ec2/describe-instances creds)]
+    (first (:reservations (instance-data {:instance-ids [instance-id]})))))
 
-(def creds {:access-key "AKIAJ66CWNVZBD5BPCVA"
-            :secret-key "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"
-            :endpoint   "us-east-1"})
-
-
-(def instances (ec2/describe-instances creds))  
-
-(defn data-for-instance [instance-id]
-  (first (:reservations (ec2/describe-instances creds {:instance-ids [instance-id]}))))
-
-(defn tags-for-instance [instance-id]
+(defn tags-for-instance [instance-id creds]
   (:tags (first (:instances (data-for-instance instance-id)))))
 
-(defn tosca-tags [instance-id]
-  (let [tags (tags-for-instance instance-id)
+(defn tosca-tags [instance-id creds]
+  (let [tags (tags-for-instance instance-id creds)
         node (node/build)
         nodei (-> (nodei/build)
                   (nodei/add-property "instanceId" instance-id)
@@ -35,7 +28,8 @@
 
 (defn -lambda [input]
   (let [data (util/as-clj-map input)
+        creds (:creds data)
         instance-id (:instance-id data)]
     (log/info "Getting instance")
     (log/info instance-id)
-    (.toString (tosca-tags instance-id))))
+    (.toString (tosca-tags instance-id creds))))

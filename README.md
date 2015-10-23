@@ -5,12 +5,18 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 
 Run as a lambda with a sample json of
 ```
-{"instance-id": "xxxxxx"}
+{ "instance-id" : "xxxxxx"
+  "creds" : {
+    "access-key" : "xxxxxx",
+    "access-secret" : "xxxxxx",
+    "endoint": "region id"
+  }
+}
 ```
 
 Returns
 ```
-"tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties:\n    instanceId: i-3b9c1e97\n    tags:\n    - {value: ngs-compute-centos002, key: Name}\n    - {value: ngs, key: app}\n    - {value: grc-sw-ssa-csa, key: dept}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
+"tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties:\n    instanceId: i-3b9ce217\n    tags:\n    - {value: compute-centos, key: Name}\n    - {value: ogs, key: app}\n    - {value: wes-ssa-csa, key: dept}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
 ```
 
 
