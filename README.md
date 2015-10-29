@@ -8,12 +8,7 @@ This first version of tosca-lens takes in the following json and returns a list 
 Run as a lambda with a sample json of
 ```
 {
-  "instance-id" : "xxxxxx",
-  "creds" : {
-    "access-key" : "xxxxxx",
-    "access-secret" : "xxxxxx",
-    "endpoint": "region id"
-  }
+  "instance-id" : "xxxxxx"
 }
 ```
 
