@@ -12,7 +12,45 @@ Run as a lambda with a sample json of
 }
 ```
 
-Returns
+Returns json
+
+```
+{
+tosca_definitions_version: "tosca_simple_yaml_1_0"
+node_instance: {
+  properties: {
+    instanceId: "i-3b9c1e97"
+      tags: [3]
+        0:  {
+              value: "ngs-compute-centos002"
+              key: "Name"
+            }
+        1:  {
+              value: "ngs"
+              key: "app" 
+            }
+        2:  {
+              value: "grc-sw-ssa-csa"
+              key: "dept"
+            }
+
+    }
+}
+node_types: {
+  ServerNode: {
+    type: "tosca.nodes.Compute"
+      properties: {}
+      attributes: {}
+      requirements: {}
+      capabilities: {}
+      interfaces: {}
+      artifacts: {}
+      metadatas: {}
+    }  
+  }
+}
+```
+
 ```
 "tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties:\n    instanceId: i-3b9ce217\n    tags:\n    - {value: compute-centos, key: Name}\n    - {value: ogs, key: app}\n    - {value: wes-ssa-csa, key: dept}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
 ```
