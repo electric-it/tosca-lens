@@ -14,18 +14,16 @@ This first version of tosca-lens takes in json and returns a list of the tags on
 5. Upload to the Lambda code tab. You may have better luck uploading your jar file to S3 and using the url option. 
 
 
-Test with an instance-id and optional format:
+Test with the following:
 
 ```json
 {
-  "instance-id" : "xxxxxx",
+  "instance-id" : "an-instance-id",
   "format" : "yaml"
 }
 ```
 
-format is an optional parameter, the default is json if you dont specify. 
-
-The lambda function Returns the format as string.
+The format is an optional parameter, the default is json. The result is returns as a string.
 
 json escaped string
 
