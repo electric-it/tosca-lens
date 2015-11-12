@@ -41,5 +41,5 @@ edn escaped string
 
 ```text
 "{:tosca_definitions_version "tosca_simple_yaml_1_0", :node_instance {:properties {:instanceId "i-3b9c1e97", :tags [{:value "compute-centos", :key "Name"} {:value "ngs", :key "app"} {:value "ssa-csa", :key "dept"}]}}, :node_types {:ServerNode {:type "tosca.nodes.Compute", :properties {}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}"
-
+```
 
