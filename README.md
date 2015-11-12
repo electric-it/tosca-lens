@@ -4,6 +4,13 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 
 This first version of tosca-lens takes in json and returns a list of the tags on the instance in [TOSCA](https://www.oasis-open.org/committees/tc_home.php) format.
 
+# Output from describe-instances (partial output)
+
+```edn
+{:reservations [{:instances [{:monitoring {:state "disabled"}, :tags [{:value "ngs-compute-centos002", :key "Name"} {:va\
+lue "ngs", :key "app"} {:value "grc-sw-ssa-csa", :key "dept"}],:public-dns-name "", :private-ip-address "10.190.5.22", :placement {:group-name "", :availability-zone "us-east-1a", :tenancy "default"}, :client-token "WiXXXXXXXXXXXX", :launch-time #object[org.joda.time.DateTime 0x2c6ba248 "2015-07-24T14:02:33.000-05:00"], :block-device-mappings [{:ebs {:volume-id "vol-76523794e8", :status "attached", :attach-time #object[org.joda.time.DateTime 0x6de92b19 "2015-07-21T08:58:00.000-05:00"], :delete-on-termination false}, :device-name "/dev/sda"}]}], :group-names [], :groups [], :owner-id "48154336146542", :reservation-id "r-06ec05fa"}]}
+```
+
 # Lamba Function
 
 ## Lambda Setup
