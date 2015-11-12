@@ -1,19 +1,4 @@
-(ns tosca-lens.util
-  (:require [clojure.data.json :as json]
-            [clj-yaml.core :as yaml]))
-
-(defn load-json [data]
-  (json/read-str data :key-fn keyword))
-
-(defn write-json [edn]
-  (json/write-str edn))
-
-(defn load-json-file[file]
-  (load-json (slurp file)))
-
-(defn write-yaml [edn]
-  (yaml/generate-string edn))
-
+(ns tosca-lens.util)
 
 ;; converting java linkedhashmaps
 (defprotocol ConvertibleToClojure
