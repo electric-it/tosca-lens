@@ -15,11 +15,7 @@
    [tosca-lens.core :as tl]
    [tosca-lens.util :as util]))
 
-(def sample-id "i-3b9c1e97")
-
-(def creds {:access-key "AKIAJ66CWNVZBD5BPCVA"
-            :secret-key "VGY0a/1KNgM3Y2jeIcOz1ckATMsM8Fbfx3D9EVtg"
-            :endpoint   "us-east-1"})
+(def sample-id "i-3b9ds9a7")
 
 (def system
   "A Var containing an object representing the application under
