@@ -6,87 +6,29 @@ TOSCALens is an API for viewing heterogeneous IT assets in a TOSCA-compliant for
 This first version of tosca-lens takes in the following json and returns a list of the tags on the instance.
 
 Run as a lambda with a sample json of
-```
+
+```json
 {
-  "instance-id" : "xxxxxx"
+  "instance-id" : "xxxxxx",
+  "format" : "yaml"
 }
 ```
 
-Returns json
+format is an optional parameter, the default is json if you dont specify. 
 
+The lambda function Returns the format as an escaped string
+
+json escaped string
 ```
-{
-tosca_definitions_version: "tosca_simple_yaml_1_0"
-node_instance: {
-  properties: {
-    instanceId: "i-3b9c1e97"
-      tags: [3]
-        0:  {
-              value: "ngs-compute-centos002"
-              key: "Name"
-            }
-        1:  {
-              value: "ngs"
-              key: "app" 
-            }
-        2:  {
-              value: "grc-sw-ssa-csa"
-              key: "dept"
-            }
-
-    }
-}
-node_types: {
-  ServerNode: {
-    type: "tosca.nodes.Compute"
-      properties: {}
-      attributes: {}
-      requirements: {}
-      capabilities: {}
-      interfaces: {}
-      artifacts: {}
-      metadatas: {}
-    }  
-  }
-}
+"{"tosca_definitions_version":"tosca_simple_yaml_1_0","node_instance":{"properties":{"instanceId":"i-3b9c1e97","tags":[{"value":"ngs-compute-centos002","key":"Name"},{"value":"ngs","key":"app"},{"value":"grc-sw-ssa-csa","key":"dept"}]}},"node_types":{"ServerNode":{"type":"tosca.nodes.Compute","properties":{},"attributes":{},"requirements":{},"capabilities":{},"interfaces":{},"artifacts":{},"metadatas":{}}}}"
 ```
 
+yaml escaped string
 ```
-"tosca_definitions_version: tosca_simple_yaml_1_0\nnode_instance:\n  properties:\n    instanceId: i-3b9ce217\n    tags:\n    - {value: compute-centos, key: Name}\n    - {value: ogs, key: app}\n    - {value: wes-ssa-csa, key: dept}\nnode_types:\n  ServerNode:\n    type: tosca.nodes.Compute\n    properties: {}\n    attributes: {}\n    requirements: {}\n    capabilities: {}\n    interfaces: {}\n    artifacts: {}\n    metadatas: {}\n"
+"tosca_definitions_version: tosca_simple_yaml_1_0 node_instance: properties: instanceId: i-3b9c1e97 tags: - {value: ngs-compute-centos002, key: Name} - {value: ngs, key: app} - {value: grc-sw-ssa-csa, key: dept} node_types: ServerNode: type: tosca.nodes.Compute properties: {} attributes: {} requirements: {} capabilities: {} interfaces: {} artifacts: {} metadatas: {} "
 ```
 
-
-# API
-The API provides the following calls:
-* List Providers
-  * Returns a list of the providers supported by this TOSCALens
-    * provider-id
-    * provider-shortname
-    * provider-description
-* Describe Compute Instance
-  * Takes an instance ID and returns a TOSCA-compliant description of that instance
-
-# Drivers
-A driver is a plug-in that allows TOSCALens to return asset descriptions for a particular provider.
-
-**AWS Driver**
-
-Supports: Compute Instances
-
-**VMWare Driver**
-
-Supports: Compute Instances
-
-# Comparison to OpenStack Congress
-https://github.com/openstack/congress
-https://github.com/openstack/congress/blob/master/congress/datasources/vCenter_driver.py
-
-The Congress project from OpenStack is conceptually very similar to the whole of the effort around ReaperBot. Though, the design and implementation is much different. OpenStack Congress is a policy enforcement engine that will work against multiple cloud providers.
-
-**Key Differences:**
-* Congress is a complete project, with a TOSCA style view of APIs and policy engine
- * ReaperBot is an orchestrated collection of standalone services. These services can be easily used outside of the context of ReaperBot.
-* Congress utilizes a custom static language to represent policy logic
- * ReaperBot utilizes lambda functions to allow the logic for each policy to be expressed in one of several different languages
-* Congress is written in Python
- * ReaperBot is not
+edn escaped string
+```
+"{:tosca_definitions_version "tosca_simple_yaml_1_0", :node_instance {:properties {:instanceId "i-3b9c1e97", :tags [{:value "ngs-compute-centos002", :key "Name"} {:value "ngs", :key "app"} {:value "grc-sw-ssa-csa", :key "dept"}]}}, :node_types {:ServerNode {:type "tosca.nodes.Compute", :properties {}, :attributes {}, :requirements {}, :capabilities {}, :interfaces {}, :artifacts {}, :metadatas {}}}}"
+```
