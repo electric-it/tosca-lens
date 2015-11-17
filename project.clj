@@ -1,4 +1,4 @@
-(defproject tosca-lens "0.1.0-SNAPSHOT"
+(defproject electric-it/tosca-lens "1.0.0"
   :description "Given a machine id and attribute examine the state."
   :license "Apache Version 2.0"
   :url "https://github.com/electric-it/tosca-lens"
