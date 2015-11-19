@@ -26,9 +26,14 @@ Test with the following:
 ```json
 {
   "instance-id" : "an-instance-id",
-  "format" : "yaml"
+  "format" : "yaml",
+  "audit-name" : "tags"
 }
 ```
+
+Audit formats currently supported:
+
+* tags - get all the tags currently on the instance
 
 The format is an optional parameter, the default is json. The result is returns as a string.
 
