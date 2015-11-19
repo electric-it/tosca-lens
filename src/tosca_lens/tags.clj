@@ -6,15 +6,16 @@
             [clj-tosca.template :as template]
             [tosca-lens.util :as util]))
 
-(defn tags-for-instance
+(defn get-data
   "Get the tags for the instance from data-for-instance."
   [data]
   (:tags (first (:instances data))))
 
-(defn tosca-tags
+(defn tosca
   "Build a tosca document with the tags and instance id."
-  [instance-id format]
-  (let [tags (tags-for-instance instance-id)
+  [data format]
+  (let [tags (get-data data)
+        instance-id (:instance-id data)
         node (node/build)
         nodei (-> (nodei/build)
                   (nodei/add-property "instanceId" instance-id)
