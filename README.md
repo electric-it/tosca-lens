@@ -26,8 +26,9 @@ Test with the following:
 ```json
 {
   "instance-id" : "an-instance-id",
-  "format" : "yaml",
-  "audit-name" : "tags"
+  "format"      : "yaml",
+  "audit-name"  : "tags",
+  "event-id"    :  "7ea91w2c-a9b7-44e5-856f-39de8certe20dc"
 }
 ```
 

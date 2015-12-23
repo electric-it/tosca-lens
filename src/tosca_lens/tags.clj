@@ -13,12 +13,13 @@
 
 (defn tosca
   "Build a tosca document with the tags and instance id."
-  [data format]
+  [data audit-params]
   (let [tags (get-data data)
-        instance-id (:instance-id data)
+        format (get-in audit-params [:format] "json")
         node (node/build)
         nodei (-> (nodei/build)
-                  (nodei/add-property "instanceId" instance-id)
+                  (nodei/add-property "instanceId" (:instance-id audit-params))
+                  (nodei/add-property "eventID" (:event-id audit-params))
                   (nodei/add-property "tags" tags))]
     (-> (template/build nodei node)
         (template/publish format))))

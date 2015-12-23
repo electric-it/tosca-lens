@@ -14,18 +14,16 @@
 
 (defn audit-tosca
   "Given the the audit name and instance get the tosca for current values."
-  [instance-data audit-params format]
+  [instance-data audit-params]
   (case (:audit-name audit-params) 
-    "tags" (tags/tosca instance-data audit-params format)
+    "tags" (tags/tosca instance-data audit-params)
     "unknown event"))
 
 (defn -lambda
   "Lambda function called by AWS Lambda."
   [input]
   (let [audit-params (util/as-clj-map input)
-        instance-id (:instance-id data)
-        format (get-in audit-params [:format] "json")
-        document (-> (instance-data instance-id)
-                     (audit-tosca audit-param format))]
-       (log/info (str "loading audit for " audit-name))
-    document))
+        document (-> (instance-data (:instance-id audit-params))
+                     (audit-tosca audit-params))]
+       (log/info (str "loading audit for " (:audit-name audit-params)))
+       document))
