@@ -6,7 +6,7 @@
             [tosca-lens.util :as util]
             [tosca-lens.tags :as tags]))
 
-(defn data-for-instance
+(defn instance-data
   "Call describe instances and get the data for instance-id."
   [instance-id]
   (let [instance-data (ec2/describe-instances {:instance-ids [instance-id]})]
@@ -14,19 +14,18 @@
 
 (defn audit-tosca
   "Given the the audit name and instance get the tosca for current values."
-  [data audit-name format]
-  (case audit-name
-    "tags" (tags/tosca data format)
+  [instance-data audit-params format]
+  (case (:audit-name audit-params) 
+    "tags" (tags/tosca instance-data audit-params format)
     "unknown event"))
 
 (defn -lambda
   "Lambda function called by AWS Lambda."
   [input]
-  (let [data (util/as-clj-map input)
+  (let [audit-params (util/as-clj-map input)
         instance-id (:instance-id data)
-        audit-name (:audit-name data)
-        format (get-in data [:format] "json")
-        document (-> (data-for-instance instance-id)
-                     (audit-tosca data format))]
+        format (get-in audit-params [:format] "json")
+        document (-> (instance-data instance-id)
+                     (audit-tosca audit-param format))]
        (log/info (str "loading audit for " audit-name))
     document))
