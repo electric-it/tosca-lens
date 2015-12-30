@@ -12,10 +12,27 @@
    [clojure.test :as test]
    [clojure.tools.namespace.repl :refer [refresh refresh-all]]
    [amazonica.aws.ec2 :as ec2]
+   [amazonica.aws.s3 :as s3]
    [tosca-lens.core :as tl]
-   [tosca-lens.util :as util]))
+   [tosca-lens.util :as util]
+   [tosca-lens.s3 :as t3])
+  (:import [com.amazonaws.services.s3 AmazonS3Client])
+  )
 
 (def sample-id "i-3b9ds9a7")
+
+(def creds {:access-key "AKIAIU5RVUXRZ2WULCUQ"
+            :secret-key "UHH7vz+OhqPghVygZo0C5o4hv5Hg0Tq0CyFfHWLE"
+            :endpoint "us-east-1"})
+
+
+(def s3-client
+  (let [creds (com.amazonaws.auth.BasicAWSCredentials.
+                "access key"
+                "secret key")] (AmazonS3Client. creds)))
+
+
+
 
 (def system
   "A Var containing an object representing the application under
