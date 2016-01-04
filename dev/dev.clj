@@ -13,6 +13,8 @@
    [clojure.tools.namespace.repl :refer [refresh refresh-all]]
    [amazonica.aws.ec2 :as ec2]
    [amazonica.aws.s3 :as s3]
+   [clj-tosca.node :as node]
+   [clj-tosca.node-instance :as nodei]
    [tosca-lens.core :as tl]
    [tosca-lens.util :as util]
    [tosca-lens.s3 :as t3])
