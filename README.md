@@ -27,14 +27,16 @@ Test with the following:
 {
   "instance-id" : "an-instance-id",
   "format"      : "yaml",
-  "audit-name"  : "tags",
+  "event-name"  : "CreateTags",
   "event-id"    :  "7ea91w2c-a9b7-44e5-856f-39de8certe20dc"
 }
 ```
 
-Audit formats currently supported:
+Audit events currently supported:
 
-* tags - get all the tags currently on the instance
+* CreateTags - get all the tags currently on the instance
+* DeleteTags - get all tags currently on the instance
+* CreateBucket - get all tags for the bucket
 
 The format is an optional parameter, the default is json. The result is returns as a string.
 

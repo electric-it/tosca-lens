@@ -7,11 +7,12 @@
             [tosca-lens.s3 :as t3]))
 
 (defn audit-tosca
-  "Given the the audit name and instance-id or bucket-name get the tosca for current values."
+  "Given the the event-name and instance-id and bucket-name get the tosca for current values."
   [audit-params]
-  (case (:audit-name audit-params) 
-    "tags"    (tags/tosca audit-params)
-    "s3-tags" (t3/tosca audit-params)
+  (case (:event-name audit-params) 
+    "CreateTags"   (tags/tosca audit-params)
+    "DeleteTags"   (tags/tosca audit-params)
+    "CreateBucket" (t3/tosca audit-params)
     "unknown event"))
 
 (defn -lambda
@@ -19,5 +20,5 @@
   [input]
   (let [audit-params (util/as-clj-map input)
         document (audit-tosca audit-params)]
-       (log/info (str "loading audit for " (:audit-name audit-params)))
+       (log/info (str "loading audit for " (:event-name audit-params)))
        document))
