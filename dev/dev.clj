@@ -23,8 +23,8 @@
 
 (def sample-id "i-3b9ds9a7")
 
-(def creds {:access-key "AKIAIU5RVUXRZ2WULCUQ"
-            :secret-key "UHH7vz+OhqPghVygZo0C5o4hv5Hg0Tq0CyFfHWLE"
+(def creds {:access-key ""
+            :secret-key ""
             :endpoint "us-east-1"})
 
 
