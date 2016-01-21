@@ -15,9 +15,9 @@ This first version of tosca-lens takes in json and returns a list of the tags on
 ## Lambda Setup
 
 1. Create a lamba function with a runtime of `java 8`, no need for a blueprint.
-2. Set the role of the lambda to one that can read-only your ec2 instances (to run describe-instances).
-3. Set the handler value to be `tosca_lens.core::lambda`.
-4. Compile to a jar with `lein compile`. 
+2. Set the role of the lambda that can read-only your ec2 instances (ie. to run describe-instances) and s3 buckets.
+3. Set the handler value to be `tosca_lens.lambda::audit`.
+4. Compile to a jar with `lein uberjar`. 
 5. Upload to the Lambda code tab. You may have better luck uploading your jar file to S3 and using the url option. 
 
 
