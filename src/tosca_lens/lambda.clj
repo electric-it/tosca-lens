@@ -1,11 +1,11 @@
-(ns tosca-lens.core
+(ns tosca-lens.lambda
   (:gen-class
-   :methods [^:static [lambda [Object] String]])
+   :methods [^:static [audit [Object] String]])
   (:require [clojure.tools.logging :as log]
             [tosca-lens.util :as util]
             [tosca-lens.audit :as audit]))
 
-(defn -lambda
+(defn -audit
   "Lambda function called by AWS Lambda."
   [input]
   (let [audit-params (util/as-clj-map input)
