@@ -1,4 +1,4 @@
-(defproject electric-it/tosca-lens "1.0.1-SNAPSHOT"
+(defproject electric-it/tosca-lens "1.0.2"
   :description "Given an audit name and params examine the attributes."
   :license "Apache Version 2.0"
   :url "https://github.com/electric-it/tosca-lens"
