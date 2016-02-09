@@ -15,9 +15,10 @@
    [amazonica.aws.s3 :as s3]
    [clj-tosca.node :as node]
    [clj-tosca.node-instance :as nodei]
-   [tosca-lens.core :as tl]
    [tosca-lens.util :as util]
-   [tosca-lens.s3 :as t3])
+   [tosca-lens.tags :as tec2]
+   [tosca-lens.s3 :as t3]
+   [tosca-lens.security-group :as security-group])
   (:import [com.amazonaws.services.s3 AmazonS3Client])
   )
 
