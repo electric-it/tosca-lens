@@ -13,14 +13,11 @@
    [clojure.tools.namespace.repl :refer [refresh refresh-all]]
    [amazonica.aws.ec2 :as ec2]
    [amazonica.aws.s3 :as s3]
-   [clj-tosca.node :as node]
-   [clj-tosca.node-instance :as nodei]
+   [clj-tosca.tosca :refer :all]
    [tosca-lens.util :as util]
-   [tosca-lens.tags :as tec2]
-   [tosca-lens.s3 :as t3]
-   [tosca-lens.security-group :as security-group])
-  (:import [com.amazonaws.services.s3 AmazonS3Client])
-  )
+   [tosca-lens.compute :as compute]
+   [tosca-lens.storage :as storage])
+  (:import [com.amazonaws.services.s3 AmazonS3Client]))
 
 (def sample-id "i-3b9ds9a7")
 
