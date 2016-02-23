@@ -1,5 +1,5 @@
 (ns tosca-lens.audit
-  (:require [tosca-lens.compute]
+  (:require [tosca-lens.compute :as compute]
             [tosca-lens.storage :as storage]
             [clojure.tools.logging :as log]))
 
@@ -8,8 +8,8 @@
   [audit-params]
   (log/info (str "incoming " (pr-str audit-params)))
   (case (:event-name audit-params)
-    "CreateTags"          (tosca-lens.compute/tosca-tags audit-params)
-    "DeleteTags"          (tosca-lens.compute/tosca-tags audit-params)
-    "CreateSecurityGroup" (tosca-lens.compute/tosca-security-group audit-params)
+    "CreateTags"          (compute/tosca-tags audit-params)
+    "DeleteTags"          (compute/tosca-tags audit-params)
+    "CreateSecurityGroup" (compute/tosca-security-group audit-params)
     "CreateBucket"        (storage/tosca audit-params)
     "unknown event"))
